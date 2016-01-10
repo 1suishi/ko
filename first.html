@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <!-- // <script type="text/javascript" src="http://knockoutjs.com/js/jquery.tmpl.js"></script> -->
+    
+</head>
+<body>
+    <script type="text/javascript">
+        $(function(){
+            var AppViewModel = {
+
+                // helloWorld: ko.observable('Hello World !!')
+                helloWorld:'Hello World !!',
+
+            }; 
+
+            ko.applyBindings(AppViewModel);
+
+        })
+    </script> 
+
+    <span data-bind="text:helloWorld"></span>
+
+    
+
+
+
+
+</body>
+</html>
