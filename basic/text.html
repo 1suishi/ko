@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+
+
+<!-- test1 -->
+	<!-- Today's message is: <span data-bind="text: myMessage"></span> -->
+	<script type="text/javascript"> 
+
+	  // var viewModel = { 
+	  //       myMessage: ko.observable() // Initially blank    
+	  //   };   
+	  //   viewModel.myMessage("Hello, world!"); // Text appears
+	 
+	  //   ko.applyBindings(viewModel)
+
+	  //   test = viewModel;
+	</script>
+
+
+
+<!-- test2 -->
+	
+	<!-- The item is <span data-bind="text: priceRating"></span> today. -->
+	<script type="text/javascript"> 
+	   
+    	// var viewModel = {
+	    //     price: ko.observable(24.95)
+	    // };
+
+	    // viewModel.priceRating = ko.computed(function() {
+	    //         return this.price() > 50 ? "expensive" : "affordable";
+	    // }, viewModel);
+
+	    // ko.applyBindings(viewModel)
+
+	    // test = viewModel;
+	</script>
+
+
+
+
+	<select data-bind="foreach: items">
+
+
+		<!-- option 中不能添加其他元素，此方式错误 -->
+		
+		<!-- <select data-bind="foreach: items">
+		    <option>Item <span data-bind="text: name"></span>
+		    </option>
+		</select>  -->
+
+
+		<!-- option 中不能添加其他元素，采用虚拟元素的方式 -->
+	    <option>Item  <!--ko text: $data--><!--/ko--></option>
+
+
+
+	      <!--  可以 直接添加，但是不能增加前面的item -->
+
+	     <!-- <option data-bind="text:"></option> -->  
+	</select> 
+
+
+	<script type="text/javascript"> 
+	   
+    	var viewModel = {
+	        items: [1,23,4,5,6]
+	    };
+
+	   
+
+	    ko.applyBindings(viewModel)
+
+	    test = viewModel;
+	</script>
+
+
+
+
+
+</body>
+</html>
