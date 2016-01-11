@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		function f(){
+			this.name = "test";
+			this.age = 13;
+		}
+
+
+		var a = f();
+			// 未使用 new 
+			// window 何其冤 被增加了两个属性
+		console.log(a); //undefined
+		console.log(window.name);  //test
+		console.log(window.age)  //13
+	</script>
+
+</body>
+</html>
