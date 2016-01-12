@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	
+	<!-- <div data-bind="css: { profitWarning: currentProfit() < 0 ,new: currentProfit() < 0 }">   Profit Information</div>  -->
+	<script type="text/javascript">
+	    // var viewModel = {        
+	    // 	currentProfit: ko.observable(150000)        // Positive value, so initially we don't apply the "profitWarning" class
+	    // };    
+	    // viewModel.currentProfit(-50);    // Causes the "profitWarning" class to be applied
+	    // ko.applyBindings(viewModel)
+
+	    // test = viewModel;
+	</script>
+
+
+	<div data-bind="css: profitStatus">
+	   Profit Information
+	</div>
+ 
+	<script type="text/javascript">
+	    var viewModel = {
+	        currentProfit: ko.observable(150000)
+	    };
+	 
+	    // Evalutes to a positive value, so initially we apply the "profitPositive" class
+	    viewModel.profitStatus = ko.computed(function() {
+	        return this.currentProfit() < 0 ? "profitWarning" : "profitPositive";
+	    }, viewModel);
+	 
+	    // Causes the "profitPositive" class to be removed and "profitWarning" class to be added
+	    viewModel.currentProfit(-50);
+
+
+	     ko.applyBindings(viewModel)
+
+	    test = viewModel;
+	</script>
+
+
+</body>
+</html>
