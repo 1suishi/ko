@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<style type="text/css">
+
+		.folders {
+			background: #bbb;
+			font-size: 0px;
+			border-radius: 7px;
+			padding: 0px
+		}
+		.folders li{
+			display: inline-block;
+			border-left: 1px solid #ddd;
+			border-right:1px solid #888;
+			font-size: 16px;
+			padding: 0.5em 1.5em
+
+		}
+		.folders li:first-child{
+			border-left: 0px;
+			border-radius: 7px 0px 0px 7px;
+		}
+		.selected {
+			background-color: #f0f;
+		}
+	</style>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	<ul class="folders" data-bind="foreach: folders">
+		<!-- <li data-bind="text: $data"></li> -->
+		<li data-bind="text: $data, 
+               css: { selected: $data == $root.chosenFolderId() },
+               click: $root.goToFolder"></li>
+	</ul>
+	<script type="text/javascript">
+		function WebmailViewModel() {
+		    // Data
+		    var self = this;
+		    self.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
+		    self.chosenFolderId = ko.observable();
+		    self.goToFolder = function(folder){
+		    	self.chosenFolderId(folder);
+		    	$.get('/mail', { folder: folder }, self.chosenFolderData);
+		    }
+
+		    self.chosenFolderData = ko.observable();
+
+		    s = self
+		};
+
+		ko.applyBindings(new WebmailViewModel());
+	</script>
+
+
+</body>
+</html>

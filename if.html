@@ -1,0 +1,27 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	
+	<label><input type="checkbox" data-bind="checked: displayMessage" /> Display message</label> 
+   
+ <div data-bind="if: displayMessage">Here is a message. Astonishing.</div>
+ <div data-bind="visible: displayMessage">Here is a message. Astonishing.</div>
+   
+ <script type="text/javascript">
+     ko.applyBindings({
+         displayMessage: ko.observable(false)
+     });
+
+    
+ </script>
+
+
+
+</body>
+</html>
