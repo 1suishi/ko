@@ -1,0 +1,25 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	The name is <span data-bind="text: personName"></span>
+	
+   
+	<script type="text/javascript">
+		var myViewModel = {
+			personName: 'Bob',
+			personAge: 123,
+		};
+
+		ko.applyBindings(myViewModel)
+	</script>
+
+
+
+</body>
+</html>
