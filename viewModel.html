@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<!-- // <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script> -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+   
+</head>
+<body>
+	<p>First name: <input data-bind="value: firstName" /></p>
+	<p>Last name: <input data-bind="value: lastName" /></p>
+	<p>Full name: <input data-bind="value: fullName" /></p>
+
+	<script type="text/javascript">
+
+		//1，构造函数的形式  compoted
+
+			function AppViewModel() {
+				var self = this;
+			    self.firstName = ko.observable("Bert");
+			    self.lastName = ko.observable("Bertington");
+			    
+			    // self.fullName = ko.computed(function(){
+			    //     return this.firstName() + " "+ this.lastName();
+			    // },self);	
+				
+
+				self.fullName = ko.computed({
+					read: function(){
+						return this.firstName() + " " + this.lastName();
+					},
+					write: function(value){
+ 						var lastSpacePos = value.replace(/\s+$/,"").lastIndexOf(" ");
+			            if (lastSpacePos > 0) { // Ignore values with no space character
+			                this.firstName(value.substring(0, lastSpacePos)); // Update "firstName"
+			                this.lastName(value.substring(lastSpacePos + 1)); // Update "lastName"
+			            }
+					},
+					owner: self
+				})
+			}
+
+
+
+			
+			ko.applyBindings(vm = new AppViewModel());
+
+
+
+		// //2, 对象字面量
+		// var vm  = {
+		// 	firstName : ko.observable("Bert"),
+		// 	lastName  : ko.observable("Bertington"),
+		// }
+
+		// //对象无法引用自身，所以computed 必须放在对象定义
+		// // http://blog.csdn.net/lfrogl/article/details/50547042
+		// vm.fullName = ko.computed(function () {
+		// 		return this.firstName() + "  " + this.lastName();
+		// },vm);
+		 
+		// ko.applyBindings(vm);
+
+
+
+
+		
+	</script>
+
+
+</body>
+</html>

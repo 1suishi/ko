@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	<div class="liveExample">
+	    <table>
+	        <thead>
+	            <tr>
+	                <th>编号</th>
+	                <th>姓名</th>
+	                <th></th>
+	            </tr>
+	        </thead>
+	        <tbody data-bind="template:{name:'list',foreach: users}">
+	        </tbody>
+	    </table>
+	</div>
+	<script type="text/html" id="list">
+	    <tr>
+	        <td data-bind="text:id"></td>
+	        <td>
+	            <input type="text" data-bind="value:name, click:edit" /></td>
+	        <td>
+	            <a href="#" data-bind="click:$parent.removePerson">移除</a>
+	            <span data-bind="visible:editing"><a >保存</a></span>
+
+	        </td>
+	    </tr>
+	</script>
+
+	<script type="text/javascript">
+
+		var User = function (id, name) {
+	        var self = this;
+	        self.id = ko.observable(id);
+	        self.name = ko.observable(name);
+	        self.editing = ko.observable(false);
+	        self.edit = function () {//这里的this是当前调用的对象，而不是UserList，而self才是UserList对象，这也是为什么要使用var self = this语句的原因
+	            this.editing(true);
+	        }
+	    };
+	    //集合属性和方法
+	    var UserList = function () {
+	        var self = this;
+	        self.users = ko.observableArray();
+	        for (var i = 0; i < 10; i++) {
+	            self.users.push(new User(i, "zzl"));
+	        }
+
+	        // Behavior Remove
+	        self.removePerson = function () {//data-bind="click:$parent.removePerson"//这句为调用当前对象的父对象上的方法
+	            self.users.remove(this);
+	           
+	        }
+
+	    }
+
+	    ko.applyBindings(new UserList());//像view返回一个User集合
+	</script>
+
+
+</body>
+</html>
