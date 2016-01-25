@@ -3,6 +3,21 @@
 <head>
 	<title>option</title>
 
+	<style type="text/css">
+
+	.red {
+		background-color: red;
+	}
+
+	.blue {
+		background-color: blue;
+	}
+
+	.bd {
+		color:green;
+	}
+	</style>
+
 	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
    
 </head>
@@ -20,25 +35,40 @@
 	</script>
 
 
-	<div data-bind="css: profitStatus">
+	<!-- <div data-bind="css: profitStatus">
 	   Profit Information
-	</div>
+	</div> -->
  
 	<script type="text/javascript">
-	    var viewModel = {
-	        currentProfit: ko.observable(150000)
-	    };
+	    // var viewModel = {
+	    //     currentProfit: ko.observable(150000)
+	    // };
 	 
-	    // Evalutes to a positive value, so initially we apply the "profitPositive" class
-	    viewModel.profitStatus = ko.computed(function() {
-	        return this.currentProfit() < 0 ? "profitWarning" : "profitPositive";
-	    }, viewModel);
+	    // // Evalutes to a positive value, so initially we apply the "profitPositive" class
+	    // viewModel.profitStatus = ko.computed(function() {
+	    //     return this.currentProfit() < 0 ? "profitWarning" : "profitPositive";
+	    // }, viewModel);
 	 
-	    // Causes the "profitPositive" class to be removed and "profitWarning" class to be added
-	    viewModel.currentProfit(-50);
+	    // // Causes the "profitPositive" class to be removed and "profitWarning" class to be added
+	    // viewModel.currentProfit(-50);
 
 
-	     ko.applyBindings(viewModel)
+	    //  ko.applyBindings(viewModel)
+
+	    // test = viewModel;
+	</script>
+
+
+	<div data-bind="css : ab">abc</div>
+
+
+	<script type="text/javascript">
+		var viewModel = {
+			ab : ko.observable("red bd"),
+
+		}
+
+		ko.applyBindings(viewModel)
 
 	    test = viewModel;
 	</script>
