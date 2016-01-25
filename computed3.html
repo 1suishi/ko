@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	<div>Enter bid price: <input data-bind="value: formattedPrice, valueUpdate:'onburl'"/></div>
+	<div>(Raw value: <span data-bind="text: price"></span>)</div>
+
+
+	<script type="text/javascript">
+		function MyViewModel() {
+		    this.price = ko.observable(25.99);
+		 
+		    this.formattedPrice = ko.pureComputed({
+		        read: function () {
+		            return '$' + this.price().toFixed(2);
+		        },
+		        write: function (value) {
+		            // Strip out unwanted characters, parse as float, then write the 
+		            // raw data back to the underlying "price" observable
+		            value = parseFloat(value.replace(/[^\.\d]/g, ""));
+		            this.price(isNaN(value) ? 0 : value); // Write to underlying storage
+		        },
+		        owner: this
+		    });
+		}
+		 
+		ko.applyBindings(new MyViewModel());
+	</script>
+
+
+</body>
+</html>
