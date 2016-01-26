@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	
+	<!-- Two-way binding. Populates textbox; syncs both ways. -->
+	<p>First value: <input data-bind="value: firstValue" /></p>   <!-- 双向绑定 -->
+	 
+	<!-- One-way binding. Populates textbox; syncs only from textbox to model. -->
+	<p>Second value: <input data-bind="value: secondValue" /></p>         <!-- 单向绑定 -->
+	 
+	<!-- No binding. Populates textbox, but doesn't react to any changes. -->
+	<p>Third value: <input data-bind="value: secondValue.length > 8" /></p>    <!-- 一次绑定
+	  -->
+	<script type="text/javascript">
+	    var viewModel = {
+	        firstValue: ko.observable("hello"), // Observable
+	        secondValue: "hello, again"         // Not observable
+	    };
+
+	    ko.applyBindings(viewModel);
+	</script>
+
+
+</body>
+</html>

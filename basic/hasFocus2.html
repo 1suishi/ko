@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	
+	<input data-bind="hasFocus: isSelected" />
+	<button data-bind="click: setIsSelected">Focus programmatically</button>
+	<span data-bind="visible: isSelected">The textbox has focus</span>
+	 
+	<script type="text/javascript">
+		var viewModel = {
+		    isSelected: ko.observable(false),
+		    setIsSelected: function() { this.isSelected(true) }
+		};
+		ko.applyBindings(viewModel);
+	</script>
+
+
+</body>
+</html>

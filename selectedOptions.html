@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	
+   
+    <p>
+        Choose some countries you'd like to visit: 
+        <select data-bind="options: availableCountries, selectedOptions: chosenCountries" size="5" multiple="true"></select>
+        <input data-bind="uniqueName: true" />
+
+    </p>
+     
+    <script type="text/javascript">
+        var viewModel = {
+            availableCountries : ko.observableArray(['France', 'Germany', 'Spain']),
+            chosenCountries : ko.observableArray(['Germany']) // Initially, only Germany is selected
+        };
+         
+        // ... then later ...
+        viewModel.chosenCountries.push('France'); // Now France is selected too
+
+        ko.applyBindings(viewModel); // Makes Knockout get to wor
+
+
+    </script>
+
+</body>
+</html>

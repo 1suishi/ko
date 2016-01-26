@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	
+	<p>
+	    Select a country:
+	    <select data-bind="options: countries,
+	                       optionsCaption: 'Choose one...',
+	                       value: selectedCountry,
+	                       valueAllowUnset: false"></select>
+	</p>
+	 
+	<script type="text/javascript">
+	    var viewModel = {
+	        countries: ['Japan', 'Bolivia', 'New Zealand'],
+	        selectedCountry: ko.observable('Latvia')
+	    };
+
+	    ko.applyBindings(viewModel)
+	</script>
+
+
+</body>
+</html>

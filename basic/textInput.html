@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	<p>Login name: <input data-bind="textInput: userName" /></p>
+	<p>Password: <input type="password" data-bind="textInput: userPassword" /></p>
+	 
+	ViewModel:
+	<pre data-bind="text: ko.toJSON($root, null, 2)"></pre>
+	 
+	<script>
+	    ko.applyBindings({
+	        userName: ko.observable(""),        // Initially blank
+	        userPassword: ko.observable("abc")  // Prepopulate
+	    });
+
+	   
+	</script>
+</body>
+</html>

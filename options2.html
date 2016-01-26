@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>option</title>
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+   
+</head>
+<body>
+	
+    <p>
+        Choose some countries you would like to visit:
+        <select data-bind="options: availableCountries" size="5" multiple="true"></select>
+    </p>
+     
+    <script type="text/javascript">
+        var viewModel = {
+            availableCountries: ko.observableArray(['France', 'Germany', 'Spain'])
+        };
+
+
+        ko.applyBindings(viewModel)
+    </script>
+</body>
+</html>
