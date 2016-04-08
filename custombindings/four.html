@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <!-- // <script type="text/javascript" src="http://knockoutjs.com/js/jquery.tmpl.js"></script> -->
+    
+</head>
+<body>
+
+    <script type="text/javascript">
+        ko.bindingHandlers.withProperties = {
+            init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+                // Make a modified binding context, with a extra properties, and apply it to descendant elements
+                var innerBindingContext = bindingContext.extend(valueAccessor);
+                ko.applyBindingsToDescendants(innerBindingContext, element);
+         
+                // Also tell KO *not* to bind the descendants itself, otherwise they will be bound twice
+                return { controlsDescendantBindings: true };
+            }
+        };
+    </script> 
+    
+
+    <div data-bind="withProperties: { emotion: 'happy' }">
+        Today I feel <span data-bind="text: emotion"></span>. <!-- Displays: happy -->
+    </div>
+    <div data-bind="withProperties: { emotion: 'whimsical' }">
+        Today I feel <span data-bind="text: emotion"></span>. <!-- Displays: whimsical -->
+    </div>
+
+    <script type="text/javascript">
+
+            var vm = {
+                
+            }
+
+            ko.applyBindings(vm)
+    </script>
+
+
+
+
+
+    
+
+
+
+
+</body>
+</html>

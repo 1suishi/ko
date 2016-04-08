@@ -23,15 +23,15 @@
 </head>
 <body>
 	
-	<!-- <div data-bind="css: { profitWarning: currentProfit() < 0 ,new: currentProfit() < 0 }">   Profit Information</div>  -->
+	<div data-bind="css: { profitWarning: currentProfit() < 0 ,new: currentProfit() < 0 }">   Profit Information</div> 
 	<script type="text/javascript">
-	    // var viewModel = {        
-	    // 	currentProfit: ko.observable(150000)        // Positive value, so initially we don't apply the "profitWarning" class
-	    // };    
-	    // viewModel.currentProfit(-50);    // Causes the "profitWarning" class to be applied
-	    // ko.applyBindings(viewModel)
+	    var viewModel = {        
+	    	currentProfit: ko.observable(150000)        // Positive value, so initially we don't apply the "profitWarning" class
+	    };    
+	    viewModel.currentProfit(-50);    // Causes the "profitWarning" class to be applied
+	    ko.applyBindings(viewModel)
 
-	    // test = viewModel;
+	    test = viewModel;
 	</script>
 
 
@@ -59,18 +59,18 @@
 	</script>
 
 
-	<div data-bind="css : ab">abc</div>
+	<!-- <div data-bind="css : ab">abc</div> -->
 
 
 	<script type="text/javascript">
-		var viewModel = {
-			ab : ko.observable("red bd"),
+		// var viewModel = {
+		// 	ab : ko.observable("red bd"),
 
-		}
+		// }
 
-		ko.applyBindings(viewModel)
+		// ko.applyBindings(viewModel)
 
-	    test = viewModel;
+	 //    test = viewModel;
 	</script>
 
 

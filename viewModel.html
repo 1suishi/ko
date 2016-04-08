@@ -26,7 +26,7 @@
 			    // },self);	
 				
 
-				self.fullName = ko.computed({
+				self.fullName = ko.pureComputed({
 					read: function(){
 						return this.firstName() + " " + this.lastName();
 					},
@@ -37,8 +37,8 @@
 			                this.lastName(value.substring(lastSpacePos + 1)); // Update "lastName"
 			            }
 					},
-					owner: self
-				})
+					owner: this,
+				});
 			}
 
 

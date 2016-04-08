@@ -16,12 +16,12 @@
    <p>Send me spam: <input type="radio" data-bind="value:3,checked: wantsSpam" name="s"/></p> -->
 
 
-   <p>Send me spam: <input type="radio" value=1 data-bind="checked: wantsSpam"  name="s"/></p>
-   <p>Send me spam: <input type="radio" value= 2 data-bind="checked: wantsSpam" name="s"/></p>
-   <p>Send me spam: <input type="radio" value=3 data-bind="checked: wantsSpam" name="s"/></p>
+   <p>Send me spam: <input type="radio" value=1 data-bind="checked: wantsSpam"  /></p>
+   <p>Send me spam: <input type="radio" value= 2 data-bind="checked: wantsSpam" /></p>
+   <p>Send me spam: <input type="radio" value=3 data-bind="checked: wantsSpam" /></p>
    <!-- <p>Send me spam: <input type="radio" data-bind="checked: wantsSpam"/></p> -->
     <script type="text/javascript">
-        var viewModel = {        
+         viewModel = {        
             wantsSpam: ko.observable() ,// Initially checked   
         };     // ... then later ...    
     

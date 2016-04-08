@@ -13,7 +13,8 @@
         <select data-bind="options: availableCountries,
                            optionsText: 'countryName',
                            value: selectedCountry,
-                           optionsCaption: 'Choose...'"></select>
+                           optionsValue: 'countryName',
+                           optionsCaption: 'Choose...',"></select>
     </p>
      
     <div data-bind="visible: selectedCountry"> <!-- Appears when you select something -->

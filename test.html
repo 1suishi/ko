@@ -2,24 +2,50 @@
 <html>
 <head>
 	<title>test</title>
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
 <body>
 
 	<script type="text/javascript">
 
-		function f(){
-			this.name = "test";
-			this.age = 13;
-		}
+		// function f(){
+		// 	this.name = "test";
+		// 	this.age = 13;
+		// }
 
 
-		var a = f();
-			// 未使用 new 
-			// window 何其冤 被增加了两个属性
-		console.log(a); //undefined
-		console.log(window.name);  //test
-		console.log(window.age)  //13
+		// var a = f();
+		// 	// 未使用 new 
+		// 	// window 何其冤 被增加了两个属性
+		// console.log(a); //undefined
+		// console.log(window.name);  //test
+		// console.log(window.age)  //13
+
+		$(function(){
+			console.log($("p"));
+			$("p").each(function(){
+				console.log(this)
+			})
+		})
+
+
+
+		// var Tree = function (element) {
+
+		// 	this.$element = $(element);
+		// 	this.id = element.id
+		// }
+
+		// $(function(){
+		// 	var s = new Tree("#id");
+		// 	console.log(s)
+		// })
 	</script>
+
+	<p id="id">1</p>
+	<p>2</p>
+	<p>3</p>
+	<p>4</p>
 
 </body>
 </html>

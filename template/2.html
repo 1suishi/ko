@@ -8,6 +8,8 @@
 </head>
 <body>
 	
+
+	<p data-bind="attr:{id:'hahaaga'+1}">hahah</p>
 	<h2>Participants</h2>
 	Here are the participants:
 	<div data-bind="template: { name: 'person-template', foreach: people }"></div>
@@ -22,7 +24,8 @@
 	     this.people = [
 	         { name: 'Franklin', credits: 250 },
 	         { name: 'Mario', credits: 5800 }
-	     ]
+	     ];
+	     this.ha = ko.observable("Fd")
 	 }
 	 ko.applyBindings(new MyViewModel());
 

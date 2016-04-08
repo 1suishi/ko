@@ -15,12 +15,16 @@
 	<p>Second value: <input data-bind="value: secondValue" /></p>         <!-- 单向绑定 -->
 	 
 	<!-- No binding. Populates textbox, but doesn't react to any changes. -->
-	<p>Third value: <input data-bind="value: secondValue.length > 8" /></p>    <!-- 一次绑定
-	  -->
+	<p>Third value:</p>    <!-- 一次绑定-->
+
+	 <input type="radio" data-bind="value:secondValue, checked: firstValue" />
+	 <input type="radio" data-bind="value:secondV, checked: firstValue" />
+	  
 	<script type="text/javascript">
-	    var viewModel = {
-	        firstValue: ko.observable("hello"), // Observable
-	        secondValue: "hello, again"         // Not observable
+	     viewModel = {
+	        firstValue: ko.observable(), // Observable
+	        secondValue: ko.observable( "again") ,      // Not observable
+	        secondV: ko.observable( "hello") ,  
 	    };
 
 	    ko.applyBindings(viewModel);

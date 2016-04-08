@@ -17,6 +17,10 @@
 	        userPassword: ko.observable("abc"), // Prepopulate
 	    };
 
+	    viewModel.userName.subscribe(function(newValue){
+	    	alert("the new name is : " + newValue)
+	    })
+
 	    ko.applyBindings(viewModel);
 	</script>
 

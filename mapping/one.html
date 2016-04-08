@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <!-- // <script type="text/javascript" src="http://knockoutjs.com/js/jquery.tmpl.js"></script> -->
+    
+</head>
+<body>
+    
+    <p>The time on the server is: <b data-bind='text: serverTime'></b></p>
+	<p>and <b data-bind='text: numUsers'></b> user(s) are connected.</p>
+	<script type="text/javascript">
+       
+		var AppViewModel = {
+			serverTime: ko.observable(132),
+			numUsers: ko.observable(32)               
+
+		}; 
+
+		ko.applyBindings(AppViewModel);     
+    </script> 
+</body>
+</html>

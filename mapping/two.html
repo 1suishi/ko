@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="./mapping.js"></script>
+    <!-- // <script type="text/javascript" src="http://knockoutjs.com/js/jquery.tmpl.js"></script> -->
+    
+</head>
+<body>
+    
+   <!--  <p>The time on the server is: <b data-bind='text: serverTime'></b></p>
+	<p>and <b data-bind='text: numUsers'></b> user(s) are connected.</p> -->
+	<script type="text/javascript">
+       
+		// var viewModel = {
+		// 	serverTime: ko.observable(132),
+		// 	numUsers: ko.observable(32)               
+
+		// }; 
+
+		var viewModel = ko.observableArray();
+
+		var data = [{
+		    serverTime: '2010-01-07',
+		    numUsers: 3
+		},{
+		    serverTime: '2010-01-07',
+		    numUsers: 3
+		}]
+
+		// Every time data is received from the server:
+		// viewModel.serverTime(data.serverTime);
+		// viewModel.numUsers(data.numUsers);
+
+
+		viewModel = ko.mapping.fromJS(data);
+
+		ko.applyBindings(viewModel);     
+    </script> 
+</body>
+</html>
